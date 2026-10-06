@@ -1,9 +1,10 @@
+use portable_atomic::AtomicU64;
 use std::{
     path::PathBuf,
     str::FromStr,
     sync::{
         RwLock,
-        atomic::{AtomicBool, AtomicU64, Ordering},
+        atomic::{AtomicBool, Ordering},
     },
 };
 

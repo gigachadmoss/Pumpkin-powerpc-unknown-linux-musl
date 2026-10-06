@@ -173,6 +173,7 @@ bytes = { version = "1.12", default-features = false, features = ["serde", "std"
 futures = { version = "0.3", default-features = false, features = ["std"] }
 rayon = { version = "1.12", default-features = false }
 crossbeam = { version = "0.8", default-features = false, features = ["std"] }
+portable-atomic = "1"
 
 uuid = { version = "1.26", default-features = false, features = ["serde", "v3", "v4", "std"] }
 serde = { version = "1.0", default-features = false, features = ["derive", "std"] }
@@ -281,3 +282,7 @@ wasm-encoder = { version = "0.259", default-features = false, features = ["compo
 webpki-root-certs = { version = "1.0.9", default-features = false }
 # ring-only: must match the provider the rest of the tree (wasmtime-wasi-http, rtc) uses
 rustls = { version = "0.23", default-features = false, features = ["ring", "std", "tls12", "logging"] }
+
+# rtc-rtp uses std::sync::atomic::AtomicU64 unconditionally.
+[patch.crates-io]
+rtc-rtp = { path = "vendor/rtc-rtp" }

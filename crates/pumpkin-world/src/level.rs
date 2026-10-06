@@ -20,6 +20,7 @@ use crate::{
 use arc_swap::ArcSwap;
 use crossbeam::queue::SegQueue;
 use dashmap::{DashMap, Entry};
+use portable_atomic::AtomicU64;
 use pumpkin_config::{chunk::ChunkConfig, lighting::LightingEngineConfig, world::LevelConfig};
 use pumpkin_data::biome::Biome;
 use pumpkin_data::dimension::Dimension;
@@ -31,7 +32,7 @@ use std::sync::{Arc, Mutex, Weak};
 use std::time::Duration;
 use std::{
     path::PathBuf,
-    sync::atomic::{AtomicBool, AtomicU64, Ordering},
+    sync::atomic::{AtomicBool, Ordering},
     thread,
 };
 use tokio::time::timeout;

@@ -1,7 +1,5 @@
-use std::{
-    sync::atomic::{AtomicU64, Ordering},
-    time,
-};
+use portable_atomic::AtomicU64;
+use std::{sync::atomic::Ordering, time};
 
 use legacy_rand::{LegacyRand, LegacySplitter};
 use worldgen_random::WorldgenRandom;
@@ -17,7 +15,7 @@ static SEED_UNIQUIFIER: AtomicU64 = AtomicU64::new(8682522807148012u64);
 
 pub fn get_seed() -> u64 {
     let seed = SEED_UNIQUIFIER
-        .try_update(Ordering::Relaxed, Ordering::Relaxed, |val| {
+        .fetch_update(Ordering::Relaxed, Ordering::Relaxed, |val| {
             Some(val.wrapping_mul(1181783497276652981u64))
         })
         .unwrap_or(0);

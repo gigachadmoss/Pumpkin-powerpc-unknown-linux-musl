@@ -1,5 +1,6 @@
+use portable_atomic::AtomicU64;
 use std::any::Any;
-use std::sync::atomic::{AtomicBool, AtomicU64, Ordering};
+use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::{Arc, Mutex};
 
 use pumpkin_data::item_stack::ItemStack;

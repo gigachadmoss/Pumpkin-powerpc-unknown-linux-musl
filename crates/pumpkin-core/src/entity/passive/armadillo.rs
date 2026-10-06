@@ -1,6 +1,7 @@
+use portable_atomic::AtomicU64;
 use std::sync::{
     Arc, Weak,
-    atomic::{AtomicI32, AtomicU64, Ordering},
+    atomic::{AtomicI32, Ordering},
 };
 
 use pumpkin_data::damage::DamageType;

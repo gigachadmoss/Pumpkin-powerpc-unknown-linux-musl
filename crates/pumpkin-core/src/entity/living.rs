@@ -1,3 +1,4 @@
+use portable_atomic::AtomicI64;
 use pumpkin_data::item::Item;
 use pumpkin_data::particle::Particle;
 use pumpkin_data::potion::Effect;
@@ -17,7 +18,7 @@ use rustc_hash::FxHashMap;
 use std::sync::Arc;
 use std::sync::atomic::Ordering;
 use std::sync::atomic::{
-    AtomicBool, AtomicI32, AtomicI64, AtomicU8,
+    AtomicBool, AtomicI32, AtomicU8,
     Ordering::{Relaxed, SeqCst},
 };
 use tracing::warn;
@@ -113,7 +114,7 @@ pub struct LivingEntity {
     /// The tick at which this entity was last attacked (entity age).
     pub last_attacked_time: AtomicI32,
     last_damage_type: std::sync::Mutex<Option<DamageType>>,
-    last_damage_stamp: std::sync::atomic::AtomicI64,
+    last_damage_stamp: AtomicI64,
 
     /// The entity ID of the entity this living entity last attacked.
     pub last_attacking_id: AtomicI32,
@@ -303,7 +304,7 @@ impl LivingEntity {
             last_attacker_id: AtomicI32::new(0),
             last_attacked_time: AtomicI32::new(0),
             last_damage_type: std::sync::Mutex::new(None),
-            last_damage_stamp: std::sync::atomic::AtomicI64::new(0),
+            last_damage_stamp: AtomicI64::new(0),
             last_attacking_id: AtomicI32::new(0),
             last_attack_time: AtomicI32::new(0),
             combat_tracker: std::sync::Mutex::new(CombatTracker::new()),

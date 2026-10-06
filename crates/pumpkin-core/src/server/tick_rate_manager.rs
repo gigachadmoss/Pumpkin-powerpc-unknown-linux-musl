@@ -1,4 +1,5 @@
-use std::sync::atomic::{AtomicBool, AtomicI32, AtomicI64, Ordering};
+use portable_atomic::AtomicI64;
+use std::sync::atomic::{AtomicBool, AtomicI32, Ordering};
 use std::time::Instant;
 
 use crossbeam::atomic::AtomicCell;

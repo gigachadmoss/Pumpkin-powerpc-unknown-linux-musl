@@ -7,11 +7,12 @@ use std::{
     pin::Pin,
     sync::{
         Arc, Mutex as StdMutex, OnceLock,
-        atomic::{AtomicBool, AtomicU64, Ordering},
+        atomic::{AtomicBool, Ordering},
     },
 };
 
 use futures::{StreamExt, stream::FuturesUnordered};
+use portable_atomic::AtomicU64;
 use tokio::sync::{Mutex, mpsc, oneshot};
 use wasmtime::{
     AsContextMut, Store, StoreContextMut,

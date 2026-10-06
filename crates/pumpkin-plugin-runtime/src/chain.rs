@@ -1,9 +1,7 @@
+use portable_atomic::AtomicU64;
 use std::{
     future::Future,
-    sync::{
-        Arc,
-        atomic::{AtomicU64, Ordering},
-    },
+    sync::{Arc, atomic::Ordering},
     time::Instant,
 };
 

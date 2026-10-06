@@ -1,6 +1,7 @@
+use portable_atomic::AtomicU64;
 use std::sync::Arc;
 use std::sync::RwLock;
-use std::sync::atomic::{AtomicBool, AtomicU8, AtomicU32, AtomicU64, Ordering};
+use std::sync::atomic::{AtomicBool, AtomicU8, AtomicU32, Ordering};
 
 use crate::entity::projectile::{ProjectileHit, calculate_ray_intersection};
 use crate::{

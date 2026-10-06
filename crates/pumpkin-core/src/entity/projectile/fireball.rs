@@ -1,5 +1,6 @@
+use portable_atomic::AtomicU64;
 use std::sync::RwLock;
-use std::sync::atomic::{AtomicBool, AtomicU64, Ordering};
+use std::sync::atomic::{AtomicBool, Ordering};
 
 use pumpkin_data::item::Item;
 use pumpkin_data::item_stack::ItemStack;

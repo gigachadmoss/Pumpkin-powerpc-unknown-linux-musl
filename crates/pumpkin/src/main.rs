@@ -35,6 +35,7 @@ use pumpkin_util::text::{
     TextComponent,
     color::{Color, NamedColor},
 };
+#[cfg(not(all(target_arch = "powerpc", target_pointer_width = "32")))]
 use pumpkin_wasm_host::WasmPluginLoader;
 use std::sync::Arc;
 use std::time::Instant;
@@ -123,6 +124,12 @@ async fn main() {
         }
     });
 
+    #[cfg(all(target_arch = "powerpc", target_pointer_width = "32"))]
+    let plugin_loaders: Vec<Arc<dyn PluginLoader>> = {
+        warn!("WASM plugin hosting is unavailable on 32-bit PowerPC builds.");
+        Vec::new()
+    };
+    #[cfg(not(all(target_arch = "powerpc", target_pointer_width = "32")))]
     let plugin_loaders: Vec<Arc<dyn PluginLoader>> = vec![Arc::new(WasmPluginLoader::new(
         config.advanced.plugins.verify_signatures,
     ))];

@@ -1,4 +1,5 @@
-use std::sync::atomic::{AtomicI32, AtomicI64, AtomicU8, Ordering};
+use portable_atomic::AtomicI64;
+use std::sync::atomic::{AtomicI32, AtomicU8, Ordering};
 
 use crate::entity::{Entity, EntityBase, living::LivingEntity};
 use crossbeam::atomic::AtomicCell;

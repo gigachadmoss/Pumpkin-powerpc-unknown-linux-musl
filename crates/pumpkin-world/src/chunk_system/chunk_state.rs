@@ -4,12 +4,13 @@ use crate::chunk::{
 };
 use crate::generation::biome_coords;
 use crate::tick::scheduler::ChunkTickScheduler;
+use portable_atomic::AtomicU64;
 use pumpkin_config::lighting::LightingEngineConfig;
 use pumpkin_data::BlockStateId;
 use pumpkin_data::dimension::Dimension;
 use rustc_hash::FxHashMap;
 use std::sync::Arc;
-use std::sync::atomic::{AtomicBool, AtomicU64};
+use std::sync::atomic::AtomicBool;
 
 use crate::ProtoChunk;
 use crate::level::SyncChunk;

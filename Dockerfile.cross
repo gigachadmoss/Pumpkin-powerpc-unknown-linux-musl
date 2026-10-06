@@ -1,0 +1,14 @@
+FROM ubuntu:22.04
+
+RUN apt-get update && apt-get install -y \
+    wget \
+    tar \
+    ca-certificates \
+    build-essential
+
+# Install prebuilt powerpc musl C cross-toolchain
+RUN wget -q https://musl.cc/powerpc-linux-musl-cross.tgz && \
+    tar -xf powerpc-linux-musl-cross.tgz -C /opt && \
+    rm powerpc-linux-musl-cross.tgz
+
+ENV PATH="/opt/powerpc-linux-musl-cross/bin:${PATH}"

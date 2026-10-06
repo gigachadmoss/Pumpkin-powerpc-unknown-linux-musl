@@ -5,11 +5,12 @@ use crate::node::{
 };
 use crate::source::{CommandSource, DummySource};
 use crate::suggestion::provider::SuggestionProvider;
+use portable_atomic::AtomicU64;
 use rustc_hash::FxHashMap;
 use std::borrow::Cow;
 use std::num::NonZero;
 use std::sync::Arc;
-use std::sync::atomic::{AtomicU64, Ordering};
+use std::sync::atomic::Ordering;
 
 static NEXT_DETACHED_NODE_ID: AtomicU64 = AtomicU64::new(1);
 

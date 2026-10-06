@@ -1,7 +1,8 @@
+use portable_atomic::AtomicI64;
 use rustc_hash::FxHashSet;
 use std::sync::{
     Arc, Mutex,
-    atomic::{AtomicBool, AtomicI32, AtomicI64, Ordering},
+    atomic::{AtomicBool, AtomicI32, Ordering},
 };
 
 use pumpkin_data::sound::{Sound, SoundCategory};

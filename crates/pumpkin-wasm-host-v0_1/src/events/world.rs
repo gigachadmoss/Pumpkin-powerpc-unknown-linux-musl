@@ -88,7 +88,7 @@ impl ToFromWasmEvent for ChunkLoad {
                     status: pumpkin_data::chunk::ChunkStatus::Empty,
                     blending_data: None,
                     dirty: std::sync::atomic::AtomicBool::new(false),
-                    inhabited_time: std::sync::atomic::AtomicU64::new(0),
+                    inhabited_time: portable_atomic::AtomicU64::new(0),
                     custom_data: std::sync::Mutex::new(pumpkin_nbt::compound::NbtCompound::new()),
                 };
                 Self {
@@ -141,7 +141,7 @@ impl ToFromWasmEvent for ChunkSave {
                     status: pumpkin_data::chunk::ChunkStatus::Empty,
                     blending_data: None,
                     dirty: std::sync::atomic::AtomicBool::new(false),
-                    inhabited_time: std::sync::atomic::AtomicU64::new(0),
+                    inhabited_time: portable_atomic::AtomicU64::new(0),
                     custom_data: std::sync::Mutex::new(pumpkin_nbt::compound::NbtCompound::new()),
                 };
                 Self {
@@ -190,7 +190,7 @@ impl ToFromWasmEvent for ChunkSend {
                     status: pumpkin_data::chunk::ChunkStatus::Empty,
                     blending_data: None,
                     dirty: std::sync::atomic::AtomicBool::new(false),
-                    inhabited_time: std::sync::atomic::AtomicU64::new(0),
+                    inhabited_time: portable_atomic::AtomicU64::new(0),
                     custom_data: std::sync::Mutex::new(pumpkin_nbt::compound::NbtCompound::new()),
                 };
                 Self {

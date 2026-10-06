@@ -1,0 +1,6 @@
+[target.powerpc-unknown-linux-musl]
+linker = "powerpc-linux-musl-gcc"
+
+[env]
+CARGO_UNSTABLE_BUILD_STD = "std,panic_abort"
+

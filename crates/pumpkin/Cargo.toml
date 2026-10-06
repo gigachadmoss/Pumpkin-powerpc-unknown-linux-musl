@@ -14,7 +14,6 @@ LegalCopyright = "Copyright © 2026 Aleksander Medvedev"
 
 [dependencies]
 pumpkin-core.workspace = true
-pumpkin-wasm-host.workspace = true
 pumpkin-config.workspace = true
 pumpkin-data = { workspace = true, features = ["default"] }
 pumpkin-util.workspace = true
@@ -25,6 +24,9 @@ rustls.workspace = true
 tokio = { workspace = true, features = ["macros", "rt-multi-thread", "signal"] }
 tracing.workspace = true
 console-subscriber = { workspace = true, optional = true }
+
+[target.'cfg(not(all(target_arch = "powerpc", target_pointer_width = "32")))'.dependencies]
+pumpkin-wasm-host.workspace = true
 
 [features]
 console-subscriber = ["dep:console-subscriber"]

@@ -105,6 +105,7 @@ webrtc.workspace = true
 async-trait.workspace = true
 
 ordered-float.workspace = true
+portable-atomic.workspace = true
 
 
 bitflags = { workspace = true }

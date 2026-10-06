@@ -1,6 +1,7 @@
+use portable_atomic::AtomicI64;
 use std::sync::{
     Arc, Weak,
-    atomic::{AtomicI32, AtomicI64, Ordering},
+    atomic::{AtomicI32, Ordering},
 };
 
 use pumpkin_data::entity::EntityType;

@@ -1,6 +1,7 @@
 use crate::block::entities::BlockEntity;
 use crate::entity::experience_orb::ExperienceOrbEntity;
 use crate::world::World;
+use portable_atomic::AtomicI64;
 use pumpkin_data::block_properties::{FacingHopper, HopperLikeProperties};
 use pumpkin_data::item_stack::ItemStack;
 use pumpkin_data::tag;
@@ -16,7 +17,7 @@ use std::array::from_fn;
 use std::sync::Arc;
 use std::sync::RwLock;
 use std::sync::atomic::Ordering;
-use std::sync::atomic::{AtomicBool, AtomicI32, AtomicI64};
+use std::sync::atomic::{AtomicBool, AtomicI32};
 
 pub struct HopperBlockEntity {
     pub position: BlockPos,

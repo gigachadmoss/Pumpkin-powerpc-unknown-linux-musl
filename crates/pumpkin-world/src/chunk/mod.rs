@@ -10,9 +10,9 @@ use pumpkin_nbt::compound::NbtCompound;
 use pumpkin_util::math::position::BlockPos;
 use rustc_hash::{FxHashMap, FxHashSet};
 
+use portable_atomic::AtomicU64;
 use std::sync::RwLock;
 use std::sync::atomic::AtomicBool;
-use std::sync::atomic::AtomicU64;
 use thiserror::Error;
 
 pub mod format;
@@ -640,7 +640,7 @@ impl ChunkData {
             status: ChunkStatus::Full,
             blending_data: None,
             dirty: std::sync::atomic::AtomicBool::new(false),
-            inhabited_time: std::sync::atomic::AtomicU64::new(0),
+            inhabited_time: AtomicU64::new(0),
             custom_data: std::sync::Mutex::new(NbtCompound::new()),
         }
     }

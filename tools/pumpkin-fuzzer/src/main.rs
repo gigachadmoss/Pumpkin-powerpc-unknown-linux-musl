@@ -1,11 +1,12 @@
 use clap::{Parser, ValueEnum};
 use colored::Colorize;
+use portable_atomic::AtomicU64;
 use rand::RngExt;
 use std::{
     net::SocketAddr,
     sync::{
         Arc,
-        atomic::{AtomicBool, AtomicU64, Ordering},
+        atomic::{AtomicBool, Ordering},
     },
     time::{Duration, Instant},
 };

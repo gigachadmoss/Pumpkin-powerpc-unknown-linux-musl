@@ -1,5 +1,6 @@
+use portable_atomic::AtomicI64;
 use rustc_hash::FxHashMap;
-use std::sync::atomic::{AtomicBool, AtomicI32, AtomicI64, Ordering};
+use std::sync::atomic::{AtomicBool, AtomicI32, Ordering};
 use std::sync::{Arc, Weak};
 use uuid::Uuid;
 

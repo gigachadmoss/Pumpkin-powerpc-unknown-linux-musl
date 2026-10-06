@@ -11,6 +11,7 @@ thiserror.workspace = true
 tokio = { workspace = true, features = ["macros", "rt", "sync"] }
 tracing.workspace = true
 wasmtime.workspace = true
+portable-atomic.workspace = true
 
 [dev-dependencies]
 tokio = { workspace = true, features = ["rt-multi-thread", "time"] }

@@ -1,8 +1,8 @@
+use portable_atomic::AtomicU64;
 use pumpkin_data::attributes::Attributes;
 use pumpkin_data::entity::EntityType;
 use rustc_hash::FxHashMap;
 use std::sync::atomic::AtomicBool;
-use std::sync::atomic::AtomicU64;
 use std::sync::atomic::Ordering;
 
 #[derive(Clone, Debug, Copy, PartialEq, Eq)]

@@ -946,9 +946,9 @@ pub struct Entity {
     /// Stores entity boolean flags (on fire, sneaking, invisible, glowing, etc.)
     pub flags: std::sync::atomic::AtomicI8,
     /// Stores Bedrock-specific entity boolean flags (bit 0-63)
-    pub bedrock_flags: std::sync::atomic::AtomicI64,
+    pub bedrock_flags: portable_atomic::AtomicI64,
     /// Stores more Bedrock-specific entity boolean flags (bit 0-63)
-    pub bedrock_flags_two: std::sync::atomic::AtomicI64,
+    pub bedrock_flags_two: portable_atomic::AtomicI64,
     /// If true, the entity bypasses physics, collisions, and block effects (e.g. spectator, markers, display entities)
     pub no_physics: AtomicBool,
     pub synched_data: synched_entity_data::SynchedEntityData,
@@ -1060,8 +1060,8 @@ impl Entity {
             damage_immunities: std::sync::Mutex::new(Vec::new()),
             data: AtomicI32::new(0),
             flags: std::sync::atomic::AtomicI8::new(0),
-            bedrock_flags: std::sync::atomic::AtomicI64::new(0),
-            bedrock_flags_two: std::sync::atomic::AtomicI64::new(0),
+            bedrock_flags: portable_atomic::AtomicI64::new(0),
+            bedrock_flags_two: portable_atomic::AtomicI64::new(0),
             fire_immune: AtomicBool::new(false),
             fire_ticks: AtomicI32::new(-1),
             has_visual_fire: AtomicBool::new(false),

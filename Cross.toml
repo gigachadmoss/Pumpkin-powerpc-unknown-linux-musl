@@ -1,0 +1,9 @@
+[target.powerpc-unknown-linux-musl]
+dockerfile = "./Dockerfile.cross"
+
+[target.powerpc-unknown-linux-musl.env]
+passthrough = ["RUSTFLAGS"]
+
+[build]
+# Tells cargo to compile std from source for Tier 3 targets
+build-std = ["std", "panic_abort"]
